@@ -1,0 +1,38 @@
+.about {
+  background-color: var(--white);
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.aboutText p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.aboutImage {
+  max-width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.aboutImage img {
+  filter: brightness(0.7);
+  width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+  .aboutContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .aboutImage {
+    order: -1;
+  }
+}

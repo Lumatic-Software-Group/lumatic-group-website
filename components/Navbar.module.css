@@ -1,0 +1,100 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: 10px 0;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  margin-right: 10px;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+.navLinks ul {
+  display: flex;
+}
+
+.navLinks ul li {
+  margin-left: 25px;
+}
+
+.navLinks ul li a {
+  color: var(--dark-color);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+.navLinks ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  transition: var(--transition);
+}
+
+.navLinks ul li a:hover::after,
+.navLinks ul li a.active::after {
+  width: 100%;
+}
+
+.navLinks ul li a:hover {
+  color: var(--primary-color);
+}
+
+@media only screen and (max-width: 768px) {
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1001;
+    transition: var(--transition);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navLinks.active {
+    right: 0;
+  }
+  
+  .navLinks ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navLinks ul li {
+    margin: 15px 0;
+  }
+}

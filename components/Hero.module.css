@@ -1,0 +1,49 @@
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  color: var(--white);
+  position: relative;
+  padding: 150px 0 100px;
+  margin-top: 0;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.heroBtns .btn-primary {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.heroBtns .btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.heroWave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.heroWave svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+}
