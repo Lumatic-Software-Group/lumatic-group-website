@@ -11,6 +11,26 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Lumatic Software Group',
   description: 'Innovative Software Solutions for Business Growth',
+  metadataBase: new URL('https://lumaticgroup.info'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    title: 'Lumatic Software Group',
+    description: 'Innovative Software Solutions for Business Growth',
+    url: 'https://lumaticgroup.info',
+    siteName: 'Lumatic Software Group',
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
