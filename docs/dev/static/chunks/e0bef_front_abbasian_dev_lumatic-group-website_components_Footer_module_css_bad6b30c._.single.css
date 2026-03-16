@@ -1,0 +1,220 @@
+/* [project]/Documents/web/front/abbasian.dev/lumatic-group-website/components/Footer.module.css [app-client] (css) */
+.Footer-module__oYEHRW__footer {
+  color: #ffffffa6;
+  background: #060e1c;
+}
+
+.Footer-module__oYEHRW__top {
+  border-bottom: 1px solid #ffffff12;
+  padding: 80px 0 60px;
+}
+
+.Footer-module__oYEHRW__container {
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  align-items: start;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+}
+
+.Footer-module__oYEHRW__brand {
+  flex-direction: column;
+  gap: 0;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__logo {
+  filter: brightness(0) invert();
+  opacity: .9;
+  width: auto;
+  height: 38px;
+  margin-bottom: 20px;
+}
+
+.Footer-module__oYEHRW__tagline {
+  color: #ffffff80;
+  max-width: 280px;
+  margin-bottom: 24px;
+  font-size: .875rem;
+  line-height: 1.75;
+}
+
+.Footer-module__oYEHRW__socials {
+  gap: 10px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__social {
+  color: #ffffff8c;
+  border: 1px solid #ffffff1a;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  text-decoration: none;
+  transition: all .25s;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__social:hover {
+  color: #c9a84c;
+  background: #c9a84c14;
+  border-color: #c9a84c;
+}
+
+.Footer-module__oYEHRW__contact {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__contactItem {
+  color: #ffffff73;
+  font-size: .8rem;
+  text-decoration: none;
+  transition: color .25s;
+}
+
+.Footer-module__oYEHRW__contactItem:hover {
+  color: #c9a84c;
+}
+
+.Footer-module__oYEHRW__dot {
+  color: #fff3;
+}
+
+.Footer-module__oYEHRW__col {
+  flex-direction: column;
+  gap: 0;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__colTitle {
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #ffffff59;
+  margin-bottom: 20px;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.Footer-module__oYEHRW__links {
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__link {
+  cursor: pointer;
+  color: #ffffff8c;
+  text-align: left;
+  background: none;
+  border: none;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 0;
+  font-family: inherit;
+  font-size: .875rem;
+  transition: color .25s;
+  display: inline-flex;
+}
+
+.Footer-module__oYEHRW__link:hover {
+  color: #c9a84c;
+}
+
+.Footer-module__oYEHRW__ctaText {
+  color: #ffffff80;
+  margin-bottom: 20px;
+  font-size: .875rem;
+  line-height: 1.65;
+}
+
+.Footer-module__oYEHRW__cta {
+  color: #0a1628;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c9a84c, #e8c97a);
+  border-radius: 4px;
+  align-self: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s;
+  display: inline-flex;
+}
+
+.Footer-module__oYEHRW__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px #c9a84c66;
+}
+
+.Footer-module__oYEHRW__bottom {
+  padding: 22px 0;
+}
+
+.Footer-module__oYEHRW__bottomInner {
+  color: #ffffff47;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-size: .8rem;
+  display: flex;
+}
+
+.Footer-module__oYEHRW__bottomRight {
+  color: #ffffff47;
+}
+
+.Footer-module__oYEHRW__devLink {
+  color: #c9a84c;
+  text-decoration: none;
+  transition: opacity .25s;
+}
+
+.Footer-module__oYEHRW__devLink:hover {
+  opacity: .75;
+}
+
+@media (max-width: 960px) {
+  .Footer-module__oYEHRW__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .Footer-module__oYEHRW__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .Footer-module__oYEHRW__container {
+    grid-template-columns: 1fr;
+  }
+
+  .Footer-module__oYEHRW__brand {
+    grid-column: auto;
+  }
+
+  .Footer-module__oYEHRW__bottomInner {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=e0bef_front_abbasian_dev_lumatic-group-website_components_Footer_module_css_bad6b30c._.single.css.map*/
