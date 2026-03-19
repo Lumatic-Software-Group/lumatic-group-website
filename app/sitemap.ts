@@ -6,8 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://lumaticgroup.info/',
-      lastModified: new Date('2026-03-12'),
-      changeFrequency: 'monthly',
+      lastModified: new Date('2026-03-19'),
+      changeFrequency: 'weekly',
       priority: 1.0,
     },
   ]
