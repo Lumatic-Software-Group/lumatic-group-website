@@ -11,13 +11,13 @@ const services = [
       </svg>
     ),
     tag: "Most Popular",
-    title: "WhatsApp Chatbot Setup",
+    title: "Chatbot Setup",
     description:
-      "Never lose a sale after hours again. We build AI-powered WhatsApp bots that handle pricing, FAQs, order capture and Telegram integration — while you sleep.",
+      "Never lose a sale after hours again. We build AI-powered bots that handle pricing, FAQs, order capture and integration - while you sleep.",
     features: ["AI-powered auto-replies", "Product catalogue & orders", "30-day support included", "5–7 day delivery"],
     ctaLabel: "Request a Quote",
-    waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20a%20WhatsApp%20chatbot",
-    tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20a%20WhatsApp%20chatbot",
+    waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20a%20chatbot",
+    tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20a%20chatbot",
   },
   {
     icon: (
@@ -29,8 +29,8 @@ const services = [
     tag: "Best Value",
     title: "Business Website",
     description:
-      "A professional, mobile-first Next.js website in English, Arabic, or Farsi — built to rank on Google and convert visitors into paying clients.",
-    features: ["5-page bilingual site (EN/AR/FA)", "WhatsApp CTA on every page", "SEO-ready & mobile-responsive", "7–14 day delivery"],
+      "A professional, mobile-first Next.js website in English, Arabic, or Farsi - built to rank on Google and convert visitors into paying clients.",
+    features: ["5-page bilingual site (EN/AR/FA)", "Social CTA on every page", "SEO-ready & mobile-responsive", "60-day support included", "7–14 day delivery"],
     ctaLabel: "Get a Free Proposal",
     waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20a%20business%20website",
     tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20a%20business%20website",
@@ -42,13 +42,13 @@ const services = [
       </svg>
     ),
     tag: "Developer-Grade",
-    title: "Android App Development",
+    title: "Android & iOS App Development",
     description:
-      "Senior Kotlin/MVVM development for UAE startups. Whether it's new features, bug fixes, or a full rebuild — we code to ship-ready standard, fast.",
-    features: ["Kotlin · MVVM · KMM", "Firebase & REST integration", "500K+ download track record", "B2B contract invoicing"],
+      "Senior mobile development for UAE startups - native Android And iOS or cross-platform (Flutter & React Native). New features, bug fixes, or full rebuilds - shipped fast, built to last.",
+    features: ["Kotlin · Swift · KMM · Flutter · React Native", "Firebase & REST integration", "500K+ download track record", "B2B contract invoicing"],
     ctaLabel: "Discuss Your Project",
-    waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20Android%20development",
-    tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20Android%20development",
+    waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20Mobile%20development",
+    tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20Mobile%20development",
   },
   {
     icon: (
@@ -59,8 +59,8 @@ const services = [
     tag: "Growth Package",
     title: "Full Digital Growth",
     description:
-      "Website + WhatsApp bot + 8 SEO blog posts in Farsi, Arabic & English + Google Search Console setup. Start generating inbound leads in 30 days.",
-    features: ["Everything in Web + Bot", "8 SEO blog posts (Farsi/EN/AR)", "Google Search Console setup", "Monthly performance report"],
+      "Website + Chatbot + Specialized content production + Advanced SEO + Google Search Console setup.",
+    features: ["Everything in Web + Bot", "Specialized content production", "Advanced SEO (incl. Google Search Console)" , "60-day support included", "B2B contract invoicing"],
     ctaLabel: "Start Growing Today",
     waHref: "https://wa.me/971502659885?text=Hi%2C%20I%27m%20interested%20in%20the%20Full%20Digital%20Growth%20package",
     tgHref: "https://t.me/lumaticgroup?text=Hi%2C%20I%27m%20interested%20in%20the%20Full%20Digital%20Growth%20package",
@@ -84,7 +84,7 @@ export default function Services() {
             <em>Dubai Businesses</em>
           </h2>
           <p className={styles.subtitle}>
-            Four high-impact services — delivered fast with AI tools and senior
+            Four high-impact services - delivered fast with AI tools and senior
             expertise. Tell us your goal and we&apos;ll craft the right solution for you.
           </p>
         </div>

@@ -204,9 +204,9 @@ export default function Contact() {
                 className={styles.input}
               >
                 <option value="">Select a service…</option>
-                <option value="WhatsApp Chatbot">WhatsApp Chatbot</option>
+                <option value="Chatbot">Chatbot</option>
                 <option value="Business Website">Business Website</option>
-                <option value="Android Development">Android Development</option>
+                <option value="Mobile Development">Mobile Development</option>
                 <option value="Full Digital Growth Package">Full Digital Growth Package</option>
                 <option value="Other">Other / Not sure yet</option>
               </select>

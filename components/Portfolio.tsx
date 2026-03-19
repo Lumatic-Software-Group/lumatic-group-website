@@ -12,10 +12,10 @@ const stats = [
 
 const projects = [
   {
-    category: "WhatsApp Automation",
-    title: "Food Business Bot — Dubai",
-    desc: "AI-powered WhatsApp chatbot for a Dubai-based Iranian food business. Handles order capture, menu enquiries, and pricing 24/7. Client saved 3+ hours/day in manual replies.",
-    tags: ["WhatsApp API", "AI Replies", "Order Capture"],
+    category: "Chatbot Automation",
+    title: "Food Business Bot - Dubai",
+    desc: "AI-powered chatbot for a Dubai-based Iranian food business. Handles order capture, menu enquiries, and pricing 24/7. Client saved 3+ hours/day in manual replies.",
+    tags: ["Chatbot API", "AI Replies", "Order Capture"],
     metric: "3 hrs/day saved",
     color: "#25D366",
   },
@@ -29,15 +29,15 @@ const projects = [
   },
   {
     category: "Android Development",
-    title: "Delivery App — Feature Module",
-    desc: "New real-time driver tracking module built with Kotlin and Firebase for a UAE delivery startup. Clean MVVM architecture, shipped in 12 days as a B2B contract.",
+    title: "Delivery App - Feature Module",
+    desc: "New real-time driver tracking module built with Kotlin and Firebase for a UAE delivery startup. Clean architecture, shipped in 12 days as a B2B contract.",
     tags: ["Kotlin", "Firebase", "MVVM"],
     metric: "12-day turnaround",
     color: "#4A90D9",
   },
   {
     category: "Full Digital Growth",
-    title: "Home Services — Full Launch",
+    title: "Home Services - Full Launch",
     desc: "Website + WhatsApp bot + 8 SEO blog posts in Farsi and English for a Dubai home services company. First inbound Google lead arrived within 45 days of launch.",
     tags: ["Website", "Bot", "SEO Content"],
     metric: "45 days to 1st lead",
@@ -46,10 +46,10 @@ const projects = [
 ];
 
 const process = [
-  { step: "01", title: "WhatsApp Consult", desc: "Free 20-minute call to understand your business and recommend the right package." },
+  { step: "01", title: "WhatsApp Or Telegram Consult", desc: "Free 20-minute call to understand your business and recommend the right package." },
   { step: "02", title: "Proposal & Quote", desc: "Clear scope, fixed price, delivery timeline. No hidden fees. You approve before we start." },
   { step: "03", title: "Build & Deliver", desc: "We build fast using AI tools. You review at every stage. Delivered in days, not months." },
-  { step: "04", title: "Launch & Support", desc: "We go live together and provide 30-day support to make sure everything performs." },
+  { step: "04", title: "Launch & Support", desc: "We go live together and provide support to make sure everything performs." },
 ];
 
 export default function Portfolio() {

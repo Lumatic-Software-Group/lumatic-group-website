@@ -49,7 +49,7 @@ export default function Hero() {
         <p className={styles.subline}>
           Lumatic Software Group is a developer-led studio crafting WhatsApp
           automation, mobile apps, and premium websites for ambitious Dubai
-          businesses — fast, bilingual, and built to convert.
+          businesses - fast, bilingual, and built to convert.
         </p>
 
         {/* CTAs */}

@@ -8,22 +8,22 @@ const pillars = [
   {
     icon: "🏗️",
     title: "Developer-Led",
-    desc: "Every project is overseen by Mahdi Abbasian — a Senior Mobile Developer with 6+ years and 500K+ app downloads.",
+    desc: "Every project is overseen by Mahdi Hossein Abbasian - a Senior Mobile Developer with 6+ years and 500K+ app downloads.",
   },
   {
     icon: "⚡",
     title: "AI-Accelerated",
-    desc: "We use cutting-edge AI tools to deliver in days, not months — without compromising on quality or code standards.",
+    desc: "We use cutting-edge AI tools to deliver in days, not months - without compromising on quality or code standards.",
   },
   {
     icon: "🌐",
     title: "Bilingual by Default",
-    desc: "Every product we ship works in English, Arabic, and Farsi — designed for Dubai's multicultural business landscape.",
+    desc: "Every product we ship works in English, Arabic, and Farsi - designed for Dubai's multicultural business landscape.",
   },
   {
     icon: "📈",
     title: "Built to Convert",
-    desc: "We don't just build pretty sites. Every element is engineered to turn visitors into WhatsApp conversations and paying clients.",
+    desc: "We don't just build pretty sites. Every element is engineered to turn visitors into Social conversations and paying clients.",
   },
 ];
 
@@ -73,14 +73,14 @@ export default function About() {
 
           <p className={styles.body}>
             Lumatic Software Group is a Dubai-based digital studio founded by
-            Mahdi Abbasian — a Senior Android Developer who has shipped apps
+            Mahdi Hossein Abbasian - a Senior Mobile Developer who has shipped apps
             with over 500,000 downloads. We apply AI tools to deliver
             enterprise-quality digital products at startup-friendly prices.
           </p>
           <p className={styles.body}>
             We serve Iranian, Arab, and international business owners across
-            the UAE who need a credible digital presence — fast. Whether it's
-            a WhatsApp chatbot for your food business, an Android feature for
+            the UAE who need a credible digital presence - fast. Whether it's
+            a chatbot for your food business, an Mobile feature for
             your startup, or a bilingual website for your trade company, we
             build it in days, not months.
           </p>
