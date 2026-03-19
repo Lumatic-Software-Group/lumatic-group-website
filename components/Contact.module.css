@@ -136,13 +136,75 @@
   color: #ffffff;
 }
 
-/* WhatsApp CTA */
-.waCta {
+/* ── Messaging Toggle Block ── */
+.messagingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.messagingHint {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* Toggle pill container */
+.togglePill {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+  align-self: flex-start;
+}
+
+/* Individual toggle button */
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.toggleBtn:hover:not(.toggleBtnActive) {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.toggleBtnActive {
+  background: var(--active-color, #25D366);
+  color: #ffffff;
+  box-shadow: 0 2px 12px var(--active-shadow, rgba(37, 211, 102, 0.4));
+}
+
+.toggleBtnIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Dynamic CTA */
+.msgCta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  background: #25D366;
+  background: var(--cta-color, #25D366);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
@@ -151,13 +213,20 @@
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 20px var(--cta-shadow, rgba(37, 211, 102, 0.35));
   align-self: flex-start;
 }
 
-.waCta:hover {
+.msgCta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 28px var(--cta-shadow, rgba(37, 211, 102, 0.5));
+}
+
+.msgCtaIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 /* Form */
