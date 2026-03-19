@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
+import { useMessaging, MESSAGING_OPTIONS } from "./MessagingContext";
 
 const navLinks = [
   { label: "Home",     href: "#home" },
@@ -13,9 +14,12 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled,     setScrolled]     = useState(false);
-  const [menuOpen,     setMenuOpen]     = useState(false);
-  const [activeSection,setActiveSection]= useState("home");
+  const [scrolled,      setScrolled]      = useState(false);
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [ctaOpen,       setCtaOpen]       = useState(false);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const { active, setActive, activeOption } = useMessaging();
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,6 +36,17 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close CTA dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ctaRef.current && !ctaRef.current.contains(e.target as Node)) {
+        setCtaOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   const handleNav = (href: string) => {
@@ -70,18 +85,61 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA */}
-          <a
-            href="https://wa.me/971502659885"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.cta}
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-            Get a Quote
-          </a>
+          {/* CTA with messaging dropdown */}
+          <div className={styles.ctaWrap} ref={ctaRef}>
+            <button
+              className={styles.cta}
+              onClick={() => setCtaOpen((v) => !v)}
+              aria-haspopup="true"
+              aria-expanded={ctaOpen}
+              style={{ "--cta-active-color": activeOption.color } as React.CSSProperties}
+            >
+              <span style={{ display: "flex" }}>{activeOption.icon16}</span>
+              Get a Quote · {activeOption.label}
+              <svg
+                className={`${styles.ctaChevron} ${ctaOpen ? styles.ctaChevronOpen : ""}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                width="12"
+                height="12"
+              >
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {/* Dropdown */}
+            {ctaOpen && (
+              <div className={styles.ctaDropdown} role="menu">
+                <p className={styles.ctaDropdownHint}>Choose your preferred app:</p>
+                {MESSAGING_OPTIONS.map((opt) => (
+                  <a
+                    key={opt.id}
+                    href={opt.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.ctaDropdownItem}
+                    style={{
+                      "--item-color": opt.color,
+                      background: active === opt.id ? `${opt.color}22` : undefined,
+                      fontWeight: active === opt.id ? 700 : undefined,
+                    } as React.CSSProperties}
+                    onClick={() => { setActive(opt.id); setCtaOpen(false); }}
+                    role="menuitem"
+                  >
+                    <span className={styles.ctaDropdownIcon} style={{ color: opt.color }}>
+                      {opt.icon16}
+                    </span>
+                    {opt.label}
+                    {active === opt.id && (
+                      <span style={{ marginLeft: "auto", fontSize: "0.65rem", opacity: 0.7 }}>✓</span>
+                    )}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Hamburger */}
           <button
@@ -110,14 +168,27 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="https://wa.me/971502659885"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.drawerCta}
-        >
-          WhatsApp Us Now
-        </a>
+
+        {/* Mobile messaging options */}
+        <div className={styles.drawerMessaging}>
+          <p className={styles.drawerMessagingLabel}>Chat with us via:</p>
+          <div className={styles.drawerCtaGroup}>
+            {MESSAGING_OPTIONS.map((opt) => (
+              <a
+                key={opt.id}
+                href={opt.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.drawerCta}
+                style={{ "--drawer-cta-color": opt.color } as React.CSSProperties}
+                onClick={() => setMenuOpen(false)}
+              >
+<span>{opt.icon18}</span>
+                {opt.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {menuOpen && (

@@ -89,6 +89,12 @@
 }
 .active::after { width: 60% !important; }
 
+/* CTA Wrapper (for dropdown positioning) */
+.ctaWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
 /* CTA Button */
 .cta {
   display: inline-flex;
@@ -102,7 +108,9 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: 4px;
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
   flex-shrink: 0;
   transition: all 0.3s ease;
   box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
@@ -111,6 +119,69 @@
 .cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 168, 76, 0.45);
+}
+
+.ctaChevron {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.ctaChevronOpen {
+  transform: rotate(180deg);
+}
+
+/* CTA Dropdown */
+.ctaDropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 200px;
+  background: #0F2040;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  z-index: 910;
+  animation: dropdownFadeIn 0.18s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ctaDropdownHint {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 4px 10px 8px;
+  margin: 0;
+}
+
+.ctaDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.ctaDropdownItem:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--item-color, #fff);
+}
+
+.ctaDropdownIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 /* Hamburger */
@@ -193,12 +264,37 @@
 
 .drawerLink:hover { color: #C9A84C; }
 
-.drawerCta {
+/* Mobile Drawer Messaging */
+.drawerMessaging {
   margin-top: auto;
-  display: block;
-  padding: 14px 24px;
-  background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
-  color: #0A1628;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawerMessagingLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 2px;
+}
+
+.drawerCtaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawerCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  background: var(--drawer-cta-color, #25D366);
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.06em;
@@ -207,9 +303,13 @@
   text-decoration: none;
   border-radius: 4px;
   transition: all 0.3s ease;
+  opacity: 0.95;
 }
 
-.drawerCta:hover { opacity: 0.9; }
+.drawerCta:hover {
+  opacity: 1;
+  filter: brightness(1.08);
+}
 
 /* Overlay */
 .overlay {
