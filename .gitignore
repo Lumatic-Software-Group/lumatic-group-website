@@ -30,10 +30,6 @@ next-env.d.ts
 
 # ── Docs / GitHub Pages export (managed by parent repo: abbasian.dev) ───
 docs/
-docs/_next/
-docs/_next/static/
-docs/_next/static/chunks/
-docs/_not-found/
 
 # ── TypeScript ───────────────────────────────────
 *.tsbuildinfo
