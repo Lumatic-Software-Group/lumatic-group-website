@@ -28,8 +28,12 @@ out/
 .next/
 next-env.d.ts
 
-# ── Docs / GitHub Pages export (managed by parent repo: abbasian.dev) ───
-docs/
+# ── Next.js dev artifacts inside docs/ (keep docs/ for GitHub Pages) ───
+docs/dev/
+docs/__next.*
+docs/_not-found/__next.*
+docs/_not-found/index.txt
+docs/_next/static/chunks/*.map
 
 # ── TypeScript ───────────────────────────────────
 *.tsbuildinfo
