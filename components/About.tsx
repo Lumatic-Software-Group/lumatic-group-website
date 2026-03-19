@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from "./About.module.css";
+import { useMessaging } from "./MessagingContext";
 
 const pillars = [
   {
@@ -27,6 +28,7 @@ const pillars = [
 ];
 
 export default function About() {
+  const { activeOption } = useMessaging();
   return (
     <section id="about" className={styles.section}>
       <div className={styles.container}>
@@ -98,12 +100,14 @@ export default function About() {
 
           <div className={styles.actions}>
             <a
-              href="https://wa.me/971502659885"
+              href={activeOption.href}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnPrimary}
+              style={{ background: activeOption.color, boxShadow: `0 4px 20px ${activeOption.shadowColor}` }}
             >
-              Talk to the Founder
+              {activeOption.icon18}
+              Talk to the Founder on {activeOption.label}
             </a>
             <a
               href="https://abbasian.dev"

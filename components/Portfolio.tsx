@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Portfolio.module.css";
+import { useMessaging } from "./MessagingContext";
 
 const stats = [
   { value: "500K+", label: "App Downloads", icon: "📲" },
@@ -52,6 +53,7 @@ const process = [
 ];
 
 export default function Portfolio() {
+  const { activeOption } = useMessaging();
   return (
     <>
       {/* ── Stats Band ── */}
@@ -118,6 +120,29 @@ export default function Portfolio() {
               <h3 className={styles.processTitle}>
                 From first message to live product<br />in as little as 5 days
               </h3>
+              <a
+                href={activeOption.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  marginTop: "16px",
+                  padding: "12px 24px",
+                  borderRadius: "40px",
+                  background: activeOption.color,
+                  color: "#fff",
+                  fontWeight: 700,
+                  fontSize: "0.9rem",
+                  textDecoration: "none",
+                  boxShadow: `0 4px 20px ${activeOption.shadowColor}`,
+                  transition: "all 0.2s ease",
+                }}
+              >
+                {activeOption.icon18}
+                Start your free consult on {activeOption.label}
+              </a>
             </div>
             <div className={styles.steps}>
               {process.map((p, i) => (
