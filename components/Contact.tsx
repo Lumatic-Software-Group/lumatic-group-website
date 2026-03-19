@@ -38,8 +38,8 @@ const channels = [
       </svg>
     ),
     label: "Email",
-    value: "hello@lumaticgroup.info",
-    href: "mailto:hello@lumaticgroup.info",
+    value: "contact@lumaticgroup.info",
+    href: "mailto:contact@lumaticgroup.info",
     color: "#C9A84C",
   },
   {
@@ -96,7 +96,7 @@ export default function Contact() {
           </h2>
 
           <p className={styles.subtitle}>
-            Tell us what your business needs. We reply within a few hours —
+            Tell us what your business needs. We reply within a few hours -
             reach us on WhatsApp or Telegram, whichever you prefer.
           </p>
 

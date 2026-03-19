@@ -5,9 +5,9 @@ import styles from "./Footer.module.css";
 import { useMessaging, MESSAGING_OPTIONS } from "./MessagingContext";
 
 const services = [
-  { label: "WhatsApp Chatbot", href: "#services" },
+  { label: "Chatbot", href: "#services" },
   { label: "Business Website", href: "#services" },
-  { label: "Android Development", href: "#services" },
+  { label: "Mobile Development", href: "#services" },
   { label: "Full Digital Growth", href: "#services" },
 ];
 
@@ -92,8 +92,8 @@ export default function Footer() {
                 +971 50 265 9885
               </a>
               <span className={styles.dot}>·</span>
-              <a href="mailto:hello@lumaticgroup.info" className={styles.contactItem}>
-                hello@lumaticgroup.info
+              <a href="mailto:contact@lumaticgroup.info" className={styles.contactItem}>
+                contact@lumaticgroup.info
               </a>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Start Today</h4>
             <p className={styles.ctaText}>
-              Ready to grow your Dubai business digitally? Message us now — free consultation.
+              Ready to grow your Dubai business digitally? Message us now - free consultation.
             </p>
             {/* App toggle indicators */}
             <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
@@ -182,7 +182,7 @@ export default function Footer() {
           <span className={styles.bottomRight}>
             Led by{" "}
             <a href="https://abbasian.dev" target="_blank" rel="noopener noreferrer" className={styles.devLink}>
-              Mahdi Abbasian
+              Mahdi Hossein Abbasian
             </a>
             , Senior Mobile Developer
           </span>
