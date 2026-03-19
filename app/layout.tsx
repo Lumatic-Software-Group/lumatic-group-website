@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import { MessagingProvider } from "@/components/MessagingContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,7 +50,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <meta name="theme-color" content="#0A1628" />
       </head>
-      <body>{children}</body>
+      <body>
+        <MessagingProvider>{children}</MessagingProvider>
+      </body>
     </html>
   );
 }
