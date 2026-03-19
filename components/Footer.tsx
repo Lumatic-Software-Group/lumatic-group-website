@@ -68,6 +68,7 @@ export default function Footer() {
               width={150}
               height={44}
               className={styles.logo}
+              style={{ width: "auto", height: "38px" }}
             />
             <p className={styles.tagline}>
               AI-powered digital studio for Dubai businesses. We build what your

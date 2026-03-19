@@ -25,7 +25,8 @@
 .logo {
   height: 38px;
   width: auto;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
+  object-position: left center;
   opacity: 0.9;
   margin-bottom: 20px;
 }
