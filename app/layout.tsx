@@ -50,7 +50,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <meta name="theme-color" content="#0A1628" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <MessagingProvider>{children}</MessagingProvider>
       </body>
     </html>
