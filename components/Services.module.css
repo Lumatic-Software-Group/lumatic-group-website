@@ -207,14 +207,35 @@
 
 .cardFeatured .cardFooter { border-color: rgba(255, 255, 255, 0.1); }
 
-.price {
-  font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #0A1628;
+/* Quote label — subtle WhatsApp link to open a discussion */
+.quoteLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #4A5E78;
+  text-decoration: none;
+  opacity: 0.75;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.cardFeatured .price { color: #C9A84C; }
+.quoteLabel:hover {
+  opacity: 1;
+  color: #25D366;
+}
+
+.quoteLabelFeatured {
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+
+.quoteLabelFeatured:hover {
+  color: #25D366;
+  opacity: 1;
+}
 
 .cardCta {
   display: inline-flex;
