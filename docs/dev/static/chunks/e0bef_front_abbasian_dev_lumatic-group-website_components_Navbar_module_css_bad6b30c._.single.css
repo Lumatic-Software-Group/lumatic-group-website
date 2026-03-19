@@ -32,7 +32,6 @@
 }
 
 .Navbar-module__mqZdaq__logoImg {
-  filter: brightness(0) invert();
   width: auto;
   height: 36px;
   transition: opacity .3s;
