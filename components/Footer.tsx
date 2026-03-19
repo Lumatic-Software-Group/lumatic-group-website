@@ -178,13 +178,14 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {new Date().getFullYear()} Lumatic Software Group · Dubai, UAE</span>
+          <span>© 2026 Lumatic Software Group · Dubai, UAE</span>
           <span className={styles.bottomRight}>
             Led by{" "}
-            <a href="https://abbasian.dev" target="_blank" rel="noopener noreferrer" className={styles.devLink}>
+            {/* dofollow — passes link equity to abbasian.dev per master plan */}
+            <a href="https://abbasian.dev" target="_blank" rel="noopener" className={styles.devLink}>
               Mahdi Hossein Abbasian
             </a>
-            , Senior Mobile Developer
+            , Senior Mobile Developer · 500K+ App Downloads
           </span>
         </div>
       </div>

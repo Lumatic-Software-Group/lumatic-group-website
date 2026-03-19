@@ -109,13 +109,14 @@ export default function About() {
               {activeOption.icon18}
               Talk to the Founder on {activeOption.label}
             </a>
+            {/* dofollow — passes link equity to abbasian.dev per master plan */}
             <a
               href="https://abbasian.dev"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className={styles.btnLink}
             >
-              View Developer Portfolio →
+              View Developer Portfolio → abbasian.dev
             </a>
           </div>
         </div>
