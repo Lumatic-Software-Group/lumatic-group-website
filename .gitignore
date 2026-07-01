@@ -8,6 +8,7 @@ Thumbs.db
 *.code-workspace
 *.suo
 *.user
+.kiro/
 
 # ── Dependencies ─────────────────────────────────
 node_modules/
@@ -20,20 +21,15 @@ yarn-error.log*
 pnpm-debug.log*
 
 # ── Build output ─────────────────────────────────
+# All build folders ignored (deployed via gh-pages branch)
 dist/
 build/
 out/
+docs/
 
 # ── Next.js ──────────────────────────────────────
 .next/
 next-env.d.ts
-
-# ── Next.js dev artifacts inside docs/ (keep docs/ for GitHub Pages) ───
-docs/dev/
-docs/__next.*
-docs/_not-found/__next.*
-docs/_not-found/index.txt
-docs/_next/static/chunks/*.map
 
 # ── TypeScript ───────────────────────────────────
 *.tsbuildinfo
