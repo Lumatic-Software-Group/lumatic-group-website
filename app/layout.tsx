@@ -302,8 +302,10 @@ export default function RootLayout({
         <meta name="geo.placename" content="Dubai, United Arab Emirates" />
         <meta name="geo.position" content="25.2048;55.2708" />
         <meta name="ICBM" content="25.2048, 55.2708" />
-        {/* hreflang — currently English only, Arabic to be added in future */}
+        {/* hreflang — multilingual targeting per master plan */}
         <link rel="alternate" hrefLang="en" href="https://lumaticgroup.info/" />
+        <link rel="alternate" hrefLang="fa" href="https://lumaticgroup.info/fa/" />
+        <link rel="alternate" hrefLang="ar" href="https://lumaticgroup.info/ar/" />
         <link rel="alternate" hrefLang="x-default" href="https://lumaticgroup.info/" />
         <script
           type="application/ld+json"
