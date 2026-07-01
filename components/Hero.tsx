@@ -1,16 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./Hero.module.css";
 import { useMessaging, MESSAGING_OPTIONS } from "./MessagingContext";
-
-const stats = [
-  { value: "500K+", label: "App Downloads" },
-  { value: "6+",    label: "Years Experience" },
-  { value: "50+",   label: "Projects Delivered" },
-  { value: "5★",    label: "Client Rating" },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function Hero() {
+  const { t } = useLanguage();
   const { active: activeMsg, setActive: setActiveMsg, activeOption } = useMessaging();
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -19,7 +15,17 @@ export default function Hero() {
     <section id="home" className={styles.hero}>
       {/* Background layers */}
       <div className={styles.bg} />
-      <div className={styles.bgImage} />
+      <div className={styles.bgImageWrap}>
+        <Image
+          src="/assets/business-bay-dubai_optimized_.jpg"
+          alt=""
+          fill
+          priority={true}
+          sizes="100vw"
+          quality={85}
+          className={styles.bgImage}
+        />
+      </div>
       <div className={styles.bgOverlay} />
 
       {/* Decorative orbs */}
@@ -33,23 +39,19 @@ export default function Hero() {
         {/* Badge */}
         <div className={styles.badge}>
           <span className={styles.badgeDot} />
-          Dubai · UAE &nbsp;·&nbsp; AI-Powered Studio
+          {t.hero.badge}
         </div>
 
         {/* Headline */}
         <h1 className={styles.headline}>
-          We Build Digital
-          <span className={styles.headlineAccent}> Products</span>
-          <br />
-          That Drive
-          <span className={styles.headlineAccent}> Growth</span>
+          {t.hero.headline}
+          <span className={styles.headlineAccent}>{t.hero.headlineAccent1}</span>
+          <span className={styles.headlineAccent}>{t.hero.headlineAccent2}</span>
         </h1>
 
         {/* Sub-headline */}
         <p className={styles.subline}>
-          Lumatic Software Group is a developer-led studio crafting WhatsApp
-          automation, mobile apps, and premium websites for ambitious Dubai
-          businesses - fast, bilingual, and built to convert.
+          {t.hero.subline}
         </p>
 
         {/* CTAs */}
@@ -91,7 +93,7 @@ export default function Hero() {
               }
             >
               {activeOption.icon18}
-              Start on {activeOption.label}
+              {t.hero.ctaPrimary} {activeOption.label}
             </a>
           </div>
 
@@ -99,7 +101,7 @@ export default function Hero() {
             className={styles.btnOutline}
             onClick={() => scrollTo("services")}
           >
-            Our Services
+            {t.hero.ctaSecondary}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
               <path d="M9 18l6-6-6-6" />
             </svg>
@@ -108,7 +110,7 @@ export default function Hero() {
 
         {/* Stats row */}
         <div className={styles.stats}>
-          {stats.map((s) => (
+          {Object.values(t.hero.stats).map((s) => (
             <div key={s.label} className={styles.stat}>
               <span className={styles.statValue}>{s.value}</span>
               <span className={styles.statLabel}>{s.label}</span>
@@ -121,7 +123,7 @@ export default function Hero() {
       <button
         className={styles.scrollDown}
         onClick={() => scrollTo("services")}
-        aria-label="Scroll down"
+        aria-label={t.hero.scrollDownAriaLabel}
       >
         <div className={styles.scrollLine} />
       </button>

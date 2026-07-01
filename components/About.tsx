@@ -3,32 +3,34 @@
 import Image from "next/image";
 import styles from "./About.module.css";
 import { useMessaging } from "./MessagingContext";
-
-const pillars = [
-  {
-    icon: "🏗️",
-    title: "Developer-Led",
-    desc: "Every project is overseen by Mahdi Hossein Abbasian - a Senior Mobile Developer with 6+ years and 500K+ app downloads.",
-  },
-  {
-    icon: "⚡",
-    title: "AI-Accelerated",
-    desc: "We use cutting-edge AI tools to deliver in days, not months - without compromising on quality or code standards.",
-  },
-  {
-    icon: "🌐",
-    title: "Bilingual by Default",
-    desc: "Every product we ship works in English, Arabic, and Farsi - designed for Dubai's multicultural business landscape.",
-  },
-  {
-    icon: "📈",
-    title: "Built to Convert",
-    desc: "We don't just build pretty sites. Every element is engineered to turn visitors into Social conversations and paying clients.",
-  },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function About() {
   const { activeOption } = useMessaging();
+  const { t } = useLanguage();
+
+  const pillars = [
+    {
+      icon: "🏗️",
+      title: t.about.pillars.developerLed.title,
+      desc: t.about.pillars.developerLed.description,
+    },
+    {
+      icon: "⚡",
+      title: t.about.pillars.aiAccelerated.title,
+      desc: t.about.pillars.aiAccelerated.description,
+    },
+    {
+      icon: "🌐",
+      title: t.about.pillars.bilingual.title,
+      desc: t.about.pillars.bilingual.description,
+    },
+    {
+      icon: "📈",
+      title: t.about.pillars.builtToConvert.title,
+      desc: t.about.pillars.builtToConvert.description,
+    },
+  ];
   return (
     <section id="about" className={styles.section}>
       <div className={styles.container}>
@@ -50,8 +52,8 @@ export default function About() {
           <div className={styles.floatingCard}>
             <div className={styles.floatingIcon}>🇦🇪</div>
             <div>
-              <div className={styles.floatingTitle}>Registered in Dubai</div>
-              <div className={styles.floatingDesc}>UAE Company · Legal B2B Invoicing</div>
+              <div className={styles.floatingTitle}>{t.about.floatingBadge.title}</div>
+              <div className={styles.floatingDesc}>{t.about.floatingBadge.description}</div>
             </div>
           </div>
 
@@ -63,26 +65,19 @@ export default function About() {
         <div className={styles.content}>
           <span className={styles.label}>
             <span className={styles.labelLine} />
-            About Lumatic
+            {t.about.sectionLabel}
           </span>
 
           <h2 className={styles.title}>
-            A Studio Where the<br />
-            <em>Founder Still Codes</em>
+            {t.about.title}<br />
+            <em>{t.about.titleAccent}</em>
           </h2>
 
           <p className={styles.body}>
-            Lumatic Software Group is a Dubai-based digital studio founded by
-            Mahdi Hossein Abbasian - a Senior Mobile Developer who has shipped apps
-            with over 500,000 downloads. We apply AI tools to deliver
-            enterprise-quality digital products at startup-friendly prices.
+            {t.about.body1}
           </p>
           <p className={styles.body}>
-            We serve Iranian, Arab, and international business owners across
-            the UAE who need a credible digital presence - fast. Whether it's
-            a chatbot for your food business, an Mobile feature for
-            your startup, or a bilingual website for your trade company, we
-            build it in days, not months.
+            {t.about.body2}
           </p>
 
           {/* Pillars */}
@@ -91,7 +86,7 @@ export default function About() {
               <div key={p.title} className={styles.pillar}>
                 <span className={styles.pillarIcon}>{p.icon}</span>
                 <div>
-                  <h4 className={styles.pillarTitle}>{p.title}</h4>
+                  <h3 className={styles.pillarTitle}>{p.title}</h3>
                   <p className={styles.pillarDesc}>{p.desc}</p>
                 </div>
               </div>
@@ -107,7 +102,7 @@ export default function About() {
               style={{ background: activeOption.color, boxShadow: `0 4px 20px ${activeOption.shadowColor}` }}
             >
               {activeOption.icon18}
-              Talk to the Founder on {activeOption.label}
+              {t.about.ctaPrimary} {activeOption.label}
             </a>
             {/* dofollow — passes link equity to abbasian.dev per master plan */}
             <a
@@ -116,7 +111,7 @@ export default function About() {
               rel="noopener"
               className={styles.btnLink}
             >
-              View Developer Portfolio → abbasian.dev
+              {t.about.ctaSecondary}
             </a>
           </div>
         </div>

@@ -2,58 +2,60 @@
 
 import styles from "./Portfolio.module.css";
 import { useMessaging } from "./MessagingContext";
-
-const stats = [
-  { value: "500K+", label: "App Downloads", icon: "📲" },
-  { value: "6+",    label: "Years Experience", icon: "🏆" },
-  { value: "5–7",   label: "Days to Deliver", icon: "⚡" },
-  { value: "3",     label: "Languages Supported", icon: "🌐" },
-];
-
-const projects = [
-  {
-    category: "Chatbot Automation",
-    title: "Food Business Bot - Dubai",
-    desc: "AI-powered chatbot for a Dubai-based Iranian food business. Handles order capture, menu enquiries, and pricing 24/7. Client saved 3+ hours/day in manual replies.",
-    tags: ["Chatbot API", "AI Replies", "Order Capture"],
-    metric: "3 hrs/day saved",
-    color: "#25D366",
-  },
-  {
-    category: "Business Website",
-    title: "Bilingual Trading Co. Site",
-    desc: "5-page Next.js website in English and Farsi for a Dubai trading company. SEO-optimised, mobile-first, with WhatsApp CTA on every page. Launched in 10 days.",
-    tags: ["Next.js", "Bilingual EN/FA", "SEO-Ready"],
-    metric: "10-day delivery",
-    color: "#C9A84C",
-  },
-  {
-    category: "Android Development",
-    title: "Delivery App - Feature Module",
-    desc: "New real-time driver tracking module built with Kotlin and Firebase for a UAE delivery startup. Clean architecture, shipped in 12 days as a B2B contract.",
-    tags: ["Kotlin", "Firebase", "MVVM"],
-    metric: "12-day turnaround",
-    color: "#4A90D9",
-  },
-  {
-    category: "Full Digital Growth",
-    title: "Home Services - Full Launch",
-    desc: "Website + WhatsApp bot + 8 SEO blog posts in Farsi and English for a Dubai home services company. First inbound Google lead arrived within 45 days of launch.",
-    tags: ["Website", "Bot", "SEO Content"],
-    metric: "45 days to 1st lead",
-    color: "#9B59B6",
-  },
-];
-
-const process = [
-  { step: "01", title: "WhatsApp Or Telegram Consult", desc: "Free 20-minute call to understand your business and recommend the right package." },
-  { step: "02", title: "Proposal & Quote", desc: "Clear scope, fixed price, delivery timeline. No hidden fees. You approve before we start." },
-  { step: "03", title: "Build & Deliver", desc: "We build fast using AI tools. You review at every stage. Delivered in days, not months." },
-  { step: "04", title: "Launch & Support", desc: "We go live together and provide support to make sure everything performs." },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function Portfolio() {
   const { activeOption } = useMessaging();
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: t.portfolio.statsBand.downloads.value, label: t.portfolio.statsBand.downloads.label, icon: t.portfolio.statsBand.downloads.icon },
+    { value: t.portfolio.statsBand.experience.value, label: t.portfolio.statsBand.experience.label, icon: t.portfolio.statsBand.experience.icon },
+    { value: t.portfolio.statsBand.delivery.value, label: t.portfolio.statsBand.delivery.label, icon: t.portfolio.statsBand.delivery.icon },
+    { value: t.portfolio.statsBand.languages.value, label: t.portfolio.statsBand.languages.label, icon: t.portfolio.statsBand.languages.icon },
+  ];
+
+  const projects = [
+    {
+      category: t.portfolio.projects.chatbot.category,
+      title: t.portfolio.projects.chatbot.title,
+      desc: t.portfolio.projects.chatbot.description,
+      tags: t.portfolio.projects.chatbot.tags,
+      metric: t.portfolio.projects.chatbot.metric,
+      color: "#25D366",
+    },
+    {
+      category: t.portfolio.projects.website.category,
+      title: t.portfolio.projects.website.title,
+      desc: t.portfolio.projects.website.description,
+      tags: t.portfolio.projects.website.tags,
+      metric: t.portfolio.projects.website.metric,
+      color: "#C9A84C",
+    },
+    {
+      category: t.portfolio.projects.mobile.category,
+      title: t.portfolio.projects.mobile.title,
+      desc: t.portfolio.projects.mobile.description,
+      tags: t.portfolio.projects.mobile.tags,
+      metric: t.portfolio.projects.mobile.metric,
+      color: "#4A90D9",
+    },
+    {
+      category: t.portfolio.projects.growth.category,
+      title: t.portfolio.projects.growth.title,
+      desc: t.portfolio.projects.growth.description,
+      tags: t.portfolio.projects.growth.tags,
+      metric: t.portfolio.projects.growth.metric,
+      color: "#9B59B6",
+    },
+  ];
+
+  const process = [
+    { step: t.portfolio.process.steps.step1.number, title: t.portfolio.process.steps.step1.title, desc: t.portfolio.process.steps.step1.description },
+    { step: t.portfolio.process.steps.step2.number, title: t.portfolio.process.steps.step2.title, desc: t.portfolio.process.steps.step2.description },
+    { step: t.portfolio.process.steps.step3.number, title: t.portfolio.process.steps.step3.title, desc: t.portfolio.process.steps.step3.description },
+    { step: t.portfolio.process.steps.step4.number, title: t.portfolio.process.steps.step4.title, desc: t.portfolio.process.steps.step4.description },
+  ];
   return (
     <>
       {/* ── Stats Band ── */}
@@ -76,15 +78,14 @@ export default function Portfolio() {
           <div className={styles.header}>
             <span className={styles.label}>
               <span className={styles.labelLine} />
-              Our Work
+              {t.portfolio.sectionLabel}
             </span>
             <h2 className={styles.title}>
-              Projects That Paid Off<br />
-              <em>for Dubai Businesses</em>
+              {t.portfolio.title}<br />
+              <em>{t.portfolio.titleAccent}</em>
             </h2>
             <p className={styles.subtitle}>
-              Real results for real clients. Every project is developer-reviewed,
-              AI-accelerated, and delivered with measurable outcomes.
+              {t.portfolio.subtitle}
             </p>
           </div>
 
@@ -115,10 +116,10 @@ export default function Portfolio() {
             <div className={styles.processHeader}>
               <span className={styles.label}>
                 <span className={styles.labelLine} />
-                How It Works
+                {t.portfolio.process.sectionLabel}
               </span>
               <h3 className={styles.processTitle}>
-                From first message to live product<br />in as little as 5 days
+                {t.portfolio.process.title}
               </h3>
               <a
                 href={activeOption.href}
@@ -141,7 +142,7 @@ export default function Portfolio() {
                 }}
               >
                 {activeOption.icon18}
-                Start your free consult on {activeOption.label}
+                {t.portfolio.process.ctaText} {activeOption.label}
               </a>
             </div>
             <div className={styles.steps}>

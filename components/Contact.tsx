@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import { useMessaging, MESSAGING_OPTIONS, PHONE, TELEGRAM_USERNAME } from "./MessagingContext";
+import { useLanguage } from "./LanguageProvider";
 
 const WA_ICON = (size = 22) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
@@ -16,50 +17,51 @@ const TG_ICON = (size = 22) => (
   </svg>
 );
 
-const channels = [
-  {
-    icon: WA_ICON(22),
-    label: "WhatsApp",
-    value: "+971 50 265 9885",
-    href: `https://wa.me/${PHONE}`,
-    color: "#25D366",
-  },
-  {
-    icon: TG_ICON(22),
-    label: "Telegram",
-    value: `@${TELEGRAM_USERNAME}`,
-    href: `https://t.me/${TELEGRAM_USERNAME}`,
-    color: "#229ED9",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
-        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    label: "Email",
-    value: "contact@lumaticgroup.info",
-    href: "mailto:contact@lumaticgroup.info",
-    color: "#C9A84C",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
-        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    label: "Location",
-    value: "Dubai, United Arab Emirates",
-    href: "https://maps.google.com/?q=Dubai,UAE",
-    color: "#C9A84C",
-  },
-];
-
 export default function Contact() {
   const [form, setForm] = useState({ name: "", business: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
   const { active: activeMessaging, setActive: setActiveMessaging, activeOption } = useMessaging();
+  const { t } = useLanguage();
+
+  const channels = [
+    {
+      icon: WA_ICON(22),
+      label: t.contact.channels.whatsapp.label,
+      value: t.contact.channels.whatsapp.value,
+      href: `https://wa.me/${PHONE}`,
+      color: "#25D366",
+    },
+    {
+      icon: TG_ICON(22),
+      label: t.contact.channels.telegram.label,
+      value: t.contact.channels.telegram.value,
+      href: `https://t.me/${TELEGRAM_USERNAME}`,
+      color: "#229ED9",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+      label: t.contact.channels.email.label,
+      value: t.contact.channels.email.value,
+      href: "mailto:contact@lumaticgroup.info",
+      color: "#C9A84C",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+      label: t.contact.channels.location.label,
+      value: t.contact.channels.location.value,
+      href: "https://maps.google.com/?q=Dubai,UAE",
+      color: "#C9A84C",
+    },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -71,7 +73,7 @@ export default function Contact() {
       `Name: ${form.name}\nBusiness: ${form.business}\nService: ${form.service}\n\n${form.message}`
     );
     const subject = encodeURIComponent(`Lumatic Enquiry from ${form.name}`);
-    window.location.href = `mailto:hello@lumaticgroup.info?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@lumaticgroup.info?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   };
@@ -87,17 +89,16 @@ export default function Contact() {
         <div className={styles.info}>
           <span className={styles.label}>
             <span className={styles.labelLine} />
-            Get in Touch
+            {t.contact.sectionLabel}
           </span>
 
           <h2 className={styles.title}>
-            Let&apos;s Build Something<br />
-            <em>That Pays Off</em>
+            {t.contact.title}<br />
+            <em>{t.contact.titleAccent}</em>
           </h2>
 
           <p className={styles.subtitle}>
-            Tell us what your business needs. We reply within a few hours -
-            reach us on WhatsApp or Telegram, whichever you prefer.
+            {t.contact.subtitle}
           </p>
 
           {/* Channels */}
@@ -123,7 +124,7 @@ export default function Contact() {
 
           {/* Messaging Toggle + CTA */}
           <div className={styles.messagingBlock}>
-            <p className={styles.messagingHint}>Chat with us instantly via:</p>
+            <p className={styles.messagingHint}>{t.contact.messagingHint}</p>
 
             {/* Toggle pill */}
             <div className={styles.togglePill}>
@@ -159,7 +160,7 @@ export default function Contact() {
               }
             >
               <span className={styles.msgCtaIcon}>{activeOption.icon22}</span>
-              {activeOption.id === "whatsapp" ? "Chat on WhatsApp — fastest response" : "Message on Telegram — also quick"}
+              {activeOption.id === "whatsapp" ? t.contact.messagingCta.whatsapp : t.contact.messagingCta.telegram}
             </a>
           </div>
         </div>
@@ -167,58 +168,60 @@ export default function Contact() {
         {/* Right: Form */}
         <div className={styles.formWrap}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <h3 className={styles.formTitle}>Send us a message</h3>
+            <h3 className={styles.formTitle}>{t.contact.form.title}</h3>
 
             <div className={styles.row}>
               <div className={styles.field}>
-                <label className={styles.fieldLabel}>Your Name *</label>
+                <label className={styles.fieldLabel}>{t.contact.form.fields.name.label}</label>
                 <input
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Mohammed Al Rashid"
+                  placeholder={t.contact.form.fields.name.placeholder}
                   required
                   className={styles.input}
                 />
               </div>
               <div className={styles.field}>
-                <label className={styles.fieldLabel}>Business Name</label>
+                <label className={styles.fieldLabel}>{t.contact.form.fields.business.label}</label>
                 <input
                   type="text"
                   name="business"
                   value={form.business}
                   onChange={handleChange}
-                  placeholder="Your company"
+                  placeholder={t.contact.form.fields.business.placeholder}
                   className={styles.input}
                 />
               </div>
             </div>
 
             <div className={styles.field}>
-              <label className={styles.fieldLabel}>Service Interested In</label>
+              <label className={styles.fieldLabel}>{t.contact.form.fields.service.label}</label>
               <select
                 name="service"
                 value={form.service}
                 onChange={handleChange}
                 className={styles.input}
               >
-                <option value="">Select a service…</option>
-                <option value="Chatbot">Chatbot</option>
-                <option value="Business Website">Business Website</option>
-                <option value="Mobile Development">Mobile Development</option>
-                <option value="Full Digital Growth Package">Full Digital Growth Package</option>
-                <option value="Other">Other / Not sure yet</option>
+                <option value="">{t.contact.form.fields.service.placeholder}</option>
+                <option value="Chatbot">{t.contact.form.fields.service.options.chatbot}</option>
+                <option value="Business Website">{t.contact.form.fields.service.options.website}</option>
+                <option value="AI Content & SEO Marketing">{t.contact.form.fields.service.options.aiContent}</option>
+                <option value="Mobile Development">{t.contact.form.fields.service.options.mobile}</option>
+                <option value="Custom AI Agent Development">{t.contact.form.fields.service.options.aiAgent}</option>
+                <option value="Full Digital Growth Package">{t.contact.form.fields.service.options.growth}</option>
+                <option value="Other">{t.contact.form.fields.service.options.other}</option>
               </select>
             </div>
 
             <div className={styles.field}>
-              <label className={styles.fieldLabel}>Message *</label>
+              <label className={styles.fieldLabel}>{t.contact.form.fields.message.label}</label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Tell us a bit about your business and what you need…"
+                placeholder={t.contact.form.fields.message.placeholder}
                 rows={5}
                 required
                 className={styles.textarea}
@@ -226,7 +229,7 @@ export default function Contact() {
             </div>
 
             <button type="submit" className={styles.submit}>
-              {sent ? "✓ Message Sent!" : "Send Message"}
+              {sent ? t.contact.form.submitSuccess : t.contact.form.submitButton}
               {!sent && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
                   <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" strokeLinecap="round" strokeLinejoin="round" />
@@ -235,7 +238,7 @@ export default function Contact() {
             </button>
 
             <p className={styles.formNote}>
-              We typically respond within 2 hours during Dubai business hours (9am–9pm GST).
+              {t.contact.form.note}
             </p>
           </form>
         </div>

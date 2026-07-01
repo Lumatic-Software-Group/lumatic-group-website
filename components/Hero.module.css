@@ -16,14 +16,16 @@
   z-index: 0;
 }
 
-.bgImage {
+.bgImageWrap {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/business-bay-dubai_optimized_.jpg');
-  background-size: cover;
-  background-position: center 30%;
   z-index: 1;
   opacity: 0.12;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center 30%;
 }
 
 .bgOverlay {
@@ -362,4 +364,57 @@
   .heroToggleBtn { flex: 1; justify-content: center; }
   .btnPrimary { width: 100%; justify-content: center; }
   .scrollDown { display: none; }
+}
+
+/* ── RTL Support ── */
+html[dir="rtl"] .hero {
+  text-align: right;
+}
+
+html[dir="rtl"] .badge {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .stat {
+  padding-right: 0;
+  padding-left: 32px;
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html[dir="rtl"] .stat:last-child {
+  border-left: none;
+  padding-left: 0;
+  padding-right: 32px;
+}
+
+html[dir="rtl"] .stat + .stat:not(:last-child) {
+  padding-left: 0;
+  padding-right: 32px;
+}
+
+html[dir="rtl"] .btnPrimary svg,
+html[dir="rtl"] .btnOutline svg {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .orb1 {
+  right: auto;
+  left: -80px;
+}
+
+html[dir="rtl"] .orb2 {
+  left: auto;
+  right: -100px;
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .stat {
+    border-left: none;
+    padding: 0;
+  }
+  
+  html[dir="rtl"] .stat:last-child {
+    padding-right: 0;
+  }
 }

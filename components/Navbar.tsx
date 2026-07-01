@@ -4,14 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 import { useMessaging, MESSAGING_OPTIONS } from "./MessagingContext";
-
-const navLinks = [
-  { label: "Home",     href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About",    href: "#about" },
-  { label: "Work",     href: "#portfolio" },
-  { label: "Contact",  href: "#contact" },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
   const [scrolled,      setScrolled]      = useState(false);
@@ -20,6 +13,15 @@ export default function Navbar() {
   const [ctaOpen,       setCtaOpen]       = useState(false);
   const ctaRef = useRef<HTMLDivElement>(null);
   const { active, setActive, activeOption } = useMessaging();
+  const { t } = useLanguage();
+  
+  const navLinks = [
+    { label: t.navbar.links.home,     href: "#home" },
+    { label: t.navbar.links.services, href: "#services" },
+    { label: t.navbar.links.about,    href: "#about" },
+    { label: t.navbar.links.work,     href: "#portfolio" },
+    { label: t.navbar.links.contact,  href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => {
@@ -95,7 +97,7 @@ export default function Navbar() {
               style={{ "--cta-active-color": activeOption.color } as React.CSSProperties}
             >
               <span style={{ display: "flex" }}>{activeOption.icon16}</span>
-              Get a Quote · {activeOption.label}
+              {t.navbar.cta} {activeOption.label}
               <svg
                 className={`${styles.ctaChevron} ${ctaOpen ? styles.ctaChevronOpen : ""}`}
                 viewBox="0 0 24 24"
@@ -112,7 +114,7 @@ export default function Navbar() {
             {/* Dropdown */}
             {ctaOpen && (
               <div className={styles.ctaDropdown} role="menu">
-                <p className={styles.ctaDropdownHint}>Choose your preferred app:</p>
+                <p className={styles.ctaDropdownHint}>{t.navbar.ctaDropdownHint}</p>
                 {MESSAGING_OPTIONS.map((opt) => (
                   <a
                     key={opt.id}
@@ -145,7 +147,7 @@ export default function Navbar() {
           <button
             className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={t.navbar.toggleMenuAriaLabel}
           >
             <span />
             <span />
@@ -171,7 +173,7 @@ export default function Navbar() {
 
         {/* Mobile messaging options */}
         <div className={styles.drawerMessaging}>
-          <p className={styles.drawerMessagingLabel}>Chat with us via:</p>
+          <p className={styles.drawerMessagingLabel}>{t.navbar.mobileMessagingLabel}</p>
           <div className={styles.drawerCtaGroup}>
             {MESSAGING_OPTIONS.map((opt) => (
               <a

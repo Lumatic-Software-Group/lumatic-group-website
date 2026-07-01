@@ -1,0 +1,106 @@
+/**
+ * Language Toggle Styles
+ * 
+ * Small, unobtrusive toggle for manual language override.
+ * Includes hover, active, and focus states for accessibility.
+ */
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.button:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active state - currently selected language */
+.button.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+}
+
+/* Keyboard focus state - accessibility */
+.button:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+  color: #fff;
+}
+
+/* Pressed state (during click) */
+.button:active {
+  transform: scale(0.95);
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  line-height: 1;
+  user-select: none;
+}
+
+/* RTL support */
+html[dir="rtl"] .toggle {
+  flex-direction: row-reverse;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .toggle {
+    padding: 5px 10px;
+    gap: 6px;
+  }
+  
+  .button {
+    font-size: 0.8125rem;
+    padding: 3px 6px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .toggle {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .button.active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .toggle,
+  .button,
+  .button:active {
+    transition: none;
+  }
+}
