@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Googlebot-Image
+Allow: /assets/
+
+Host: https://lumaticgroup.info
+Sitemap: https://lumaticgroup.info/sitemap.xml
